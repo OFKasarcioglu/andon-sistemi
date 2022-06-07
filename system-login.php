@@ -10,9 +10,7 @@
     <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-
 </head>
-
 <body>
 <div class="account-pages my-5 pt-sm-5">
     <div class="container">
@@ -51,22 +49,41 @@
                             </a>
                         </div>
                         <div class="p-2">
-                            <form class="form-horizontal" action="index.html">
+                            <?php
+                            if ($_GET['DURUM'] == "IZINSIZ") {
+                                ?>
+                                <div class="alert alert-danger alert-dismissible fade show mb-0"
+                                     role="alert"><span class="alert-inner--icon"><i
+                                                class="fe fe-slash"></i></span> <span
+                                            class="alert-inner--text"><strong> İZİNSIZ !</strong> İzinsiz giriş yapmaya çalışıyorsunuz!</span>
+                                </div>
+
+                            <?php } elseif ($_GET['DURUM'] == "YETKISIZ") {
+                                ?>
+                                <div class="alert alert-warning alert-dismissible fade show mb-0"
+                                     role="alert"><span class="alert-inner--icon"><i
+                                                class="fe fe-slash"></i></span> <span
+                                            class="alert-inner--text"><strong> YETKİSİZ !</strong> Giriş yapmaya çalıştığınız sisteme yetkiniz yoktur !</span>
+                                </div>
+                            <?php } ?>
+                            <br>
+                            <br>
+                            <form class="form-horizontal"  method="post" action="process/prodecure.php">
 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Kullanıcı Adınız</label>
-                                    <input type="text" class="form-control" id="username" placeholder="Örn : Gebo">
+                                    <input type="text" name="kullaniciName" class="form-control" id="username" placeholder="Örn : Gebo">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Şifre</label>
                                     <div class="input-group auth-pass-inputgroup">
-                                        <input type="password" class="form-control" placeholder="Örn : 12345" aria-label="Password" aria-describedby="password-addon">
+                                        <input type="password" class="form-control" name="kullaniciPass" placeholder="Örn : 12345" aria-label="Password" aria-describedby="password-addon">
                                         <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                     </div>
                                 </div>
                                 <div class="mt-3 d-grid">
-                                    <button class="btn btn-primary waves-effect waves-light" type="submit">Sisteme Giriş Yap</button>
+                                    <button class="btn btn-primary waves-effect waves-light" name="systemLogin" type="submit">Sisteme Giriş Yap</button>
                                 </div>
                             </form>
                         </div>

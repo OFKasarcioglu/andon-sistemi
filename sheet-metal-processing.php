@@ -1,4 +1,10 @@
 <?php include "services/head-services.php"?>
+<?php
+include 'process/connection.php';
+$SacIhtiyac=$DataBase->prepare("SELECT * FROM gbprssdataexcel");
+$SacIhtiyac->execute();
+
+?>
 <title>Sac İşlemleri | Gebo Pres</title>
 <body data-topbar="dark" data-layout="horizontal">
 <div id="layout-wrapper">
@@ -34,24 +40,28 @@
                                 <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                     <thead align="center">
                                     <tr>
-                                        <th>Kullanıcı Ad</th>
-                                        <th>Kullanıcı Soyad</th>
-                                        <th>Kullanıcı Şifre</th>
-                                        <th>Kullanıcı Yetki</th>
-                                        <th>İşlemler</th>
+                                        <th>Mamül Kodu</th>
+                                        <th>Mamül Adi</th>
+                                        <th>Sipariş</th>
+                                        <th>Bu İş İçin Sac İhtiyaç KG</th>
+                                        <th>Sac Stok</th>
+                                        <th>Satın Alma İhtiyacı</th>
+                                        <th>Satın Alınacak Miktar</th>
                                     </tr>
                                     </thead>
                                     <tbody align="center">
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
-                                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    while ($SacIhtiyacListele=$SacIhtiyac->fetch(PDO::FETCH_ASSOC)){?>
+                                        <tr>
+                                            <td><?php echo $SacIhtiyacListele['Mamul_kodu'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Mamul_Adi'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Siparis'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Bu_isin_sac_ihtiyaci_kg'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Sac_stok'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Sac_satinalma_ihtiyaci'];?></td>
+                                            <th>Satın Alınacak Miktar</th>
+                                        </tr>
+                                    <?php }?>
                                     </tbody>
                                 </table>
                             </div>
