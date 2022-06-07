@@ -64,13 +64,13 @@
                     </a>
 
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./database-insert.php" id="topnav-dashboard"
                        role="button"
                     >
                         <i class="fas fa-file-excel"></i><span key="t-dashboards"> Database İçeri Aktar</span>
                     </a>
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./urgent-work.php" id="topnav-dashboard"
                        role="button"
                     >
                         <i class="bx bxs-error"></i><span key="t-dashboards"> Acil İş</span>
@@ -103,8 +103,8 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div>
-                                        <a href="ui-alerts.html" class="dropdown-item" key="t-alerts">Kullanıcı Ekle</a>
-                                        <a href="ui-buttons.html" class="dropdown-item" key="t-buttons">Kullanıcı Listesi</a>
+                                        <a href="./people-insert.php" class="dropdown-item" key="t-alerts">Kullanıcı Ekle</a>
+                                        <a href="./people-list.php" class="dropdown-item" key="t-buttons">Kullanıcı Listesi</a>
                                     </div>
                                 </div>
 
@@ -127,8 +127,8 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div>
-                                        <a href="ui-alerts.html" class="dropdown-item" key="t-alerts">Pres Ekle</a>
-                                        <a href="ui-buttons.html" class="dropdown-item" key="t-buttons">Pres Listesi</a>
+                                        <a href="./pres-insert.php" class="dropdown-item" key="t-alerts">Pres Ekle</a>
+                                        <a href="./pres-list.php" class="dropdown-item" key="t-buttons">Pres Listesi</a>
                                     </div>
                                 </div>
 
@@ -137,19 +137,17 @@
                         </div>
                     </li>
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./sheet-metal-processing.php" id="topnav-dashboard"
                        role="button"
                     >
                         <i class="dripicons-map"></i><span key="t-dashboards"> Sac İşlemleri</span>
                     </a>
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./support-system.php" id="topnav-dashboard"
                        role="button"
                     >
                         <i class="bx bxs-message-dots"></i><span key="t-dashboards"> Destek İşlemleri</span>
                     </a>
-
-
                 </ul>
             </div>
         </nav>
