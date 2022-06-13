@@ -183,7 +183,7 @@
             title: '',
             is3D: true
         };
-        var chart = new google.visualization.PieChart(document.getElementById('MamulChart'));
+        var chart = new google.visualization.BarChart(document.getElementById('MamulChart'));
         chart.draw(data, options);
     }
 </script>

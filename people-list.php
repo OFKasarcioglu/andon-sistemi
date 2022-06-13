@@ -1,4 +1,10 @@
 <?php include "services/head-services.php"?>
+<?php
+include 'process/connection.php';
+$KullaniciListe=$DataBase->prepare("SELECT * FROM gbprssdatakullanici");
+$KullaniciListe->execute();
+
+?>
 <title>Kullanıcı Listesi | Gebo Pres</title>
 <body data-topbar="dark" data-layout="horizontal">
 <div id="layout-wrapper">
@@ -25,7 +31,7 @@
                 <div class="row">
                     <style>
                         .pagination {
-                            visibility: hidden !important;
+                            float: right;
                         }
                     </style>
 
@@ -39,20 +45,27 @@
                                         <th>Kullanıcı Soyad</th>
                                         <th>Kullanıcı Şifre</th>
                                         <th>Kullanıcı Yetki</th>
+                                        <th>Kullanıcı Eklenme Tarihi</th>
                                         <th>İşlemler</th>
                                     </tr>
                                     </thead>
                                     <tbody align="center">
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
-                                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
-                                        </td>
-                                    </tr>
+
+
+                                    <?php
+                                    while ($KullaniciListeGoster=$KullaniciListe->fetch(PDO::FETCH_ASSOC)){?>
+                                        <tr>
+                                            <td><?php echo $KullaniciListeGoster['KullaniciName'];?></td>
+                                            <td><?php echo $KullaniciListeGoster['KullaniciSurName'];?></td>
+                                            <td><?php echo $KullaniciListeGoster['KullaniciSifre'];?></td>
+                                            <td><?php echo $KullaniciListeGoster['KullaniciYetki'];?></td>
+                                            <td><?php echo $KullaniciListeGoster['KullaniciAddDate'];?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
+                                                <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
+                                            </td>
+                                        </tr>
+                                    <?php }?>
                                     </tbody>
                                 </table>
                             </div>

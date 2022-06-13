@@ -51,8 +51,8 @@
                                             <select id="formrow-inputState" class="form-select">
                                                 <option>--</option>
                                                 <option>Admin</option>
-                                                <option>Pres Elemanı</option>
-                                                <option>Kalıp Elemanı</option>
+                                                <option>Preshane Sorumlusu</option>
+                                                <option>Kalıphane Sorumlusu</option>
                                             </select>
                                         </div>
                                     </div>

@@ -30,7 +30,7 @@ $SacIhtiyac->execute();
                 <div class="row">
                     <style>
                         .pagination {
-                            visibility: hidden !important;
+                            float: right;
                         }
                     </style>
 
@@ -40,26 +40,48 @@ $SacIhtiyac->execute();
                                 <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                     <thead align="center">
                                     <tr>
-                                        <th>Mamül Kodu</th>
-                                        <th>Mamül Adi</th>
-                                        <th>Sipariş</th>
+                                        <th>Sıra</th>
+                                        <th>Müşteri Sipariş No</th>
+                                        <th>Teslim Tarihi</th>
+                                        <th>Müşteri Adı</th>
+                                        <th>Kalıp Grubu</th>
+                                        <th>Tüm İçin Sac İhtiyaç </th>
                                         <th>Bu İş İçin Sac İhtiyaç KG</th>
                                         <th>Sac Stok</th>
                                         <th>Satın Alma İhtiyacı</th>
                                         <th>Satın Alınacak Miktar</th>
+
                                     </tr>
                                     </thead>
                                     <tbody align="center">
                                     <?php
                                     while ($SacIhtiyacListele=$SacIhtiyac->fetch(PDO::FETCH_ASSOC)){?>
                                         <tr>
-                                            <td><?php echo $SacIhtiyacListele['Mamul_kodu'];?></td>
-                                            <td><?php echo $SacIhtiyacListele['Mamul_Adi'];?></td>
-                                            <td><?php echo $SacIhtiyacListele['Siparis'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Sira'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Musteri_siparis_no'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Teslim_tarihi'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Musteri_adi'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Kalip_grubu'];?></td>
+                                            <td><?php echo $SacIhtiyacListele['Tum_isin_sac_ihtiyaci_kg'];?></td>
                                             <td><?php echo $SacIhtiyacListele['Bu_isin_sac_ihtiyaci_kg'];?></td>
                                             <td><?php echo $SacIhtiyacListele['Sac_stok'];?></td>
                                             <td><?php echo $SacIhtiyacListele['Sac_satinalma_ihtiyaci'];?></td>
-                                            <th>Satın Alınacak Miktar</th>
+                                            <td>
+                                                <?php
+
+
+                                                $Stok =  $SacIhtiyacListele['Sac_stok'];
+                                                $Ihtiyac =  $SacIhtiyacListele['Bu_isin_sac_ihtiyaci_kg'];
+                                                $Sonuc =  $Ihtiyac - $Stok;
+
+                                                if($Sonuc < 0)
+                                                    echo "<p class='bg bg-success'>Stok Yeterli</p>";
+                                                else
+                                                    echo  "<p class='bg bg-danger'>".$Sonuc."</p>";
+
+
+                                                ?>
+                                            </td>
                                         </tr>
                                     <?php }?>
                                     </tbody>

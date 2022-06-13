@@ -12,6 +12,7 @@
                             <h4 class="mb-sm-0 font-size-18">Acil İş</h4>
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
+
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Anasayfa</a></li>
                                     <li class="breadcrumb-item active">Acil İş</li>
                                 </ol>
@@ -29,10 +30,12 @@
                                     <div class="col-sm-12">
                                         <div class="mt-4">
                                             <div>
+                                                <form action="process/prodecure.php" method="post">
                                                 <div class="input-group">
                                                     <input type="text" placeholder="ÖRN : 13" class="form-control" id="GeboPresAcilIs" aria-describedby="GeboPresAcilIs">
-                                                    <button class="btn btn-danger" type="submit" id="GeboPresAcilIs">İçeri Aktar</button>
+                                                    <button class="btn btn-danger" type="submit"  name="siraAcil" id="GeboPresAcilIs">Acil İş</button>
                                                 </div>
+                                                </form>
                                             </div>
 
                                         </div>

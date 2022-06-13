@@ -77,17 +77,17 @@
                     </a>
 
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./kaliphane-screen.php" id="topnav-dashboard"
                        role="button"
                     >
-                        <i class="fas fa-prescription-bottle"></i><span key="t-dashboards"> Pres Hane Ekranı</span>
+                        <i class="fas fa-prescription-bottle"></i><span key="t-dashboards"> Kalıp Hane Ekranı</span>
                     </a>
 
 
-                    <a class="nav-link dropdown-toggle arrow-none" href="./homepage.php" id="topnav-dashboard"
+                    <a class="nav-link dropdown-toggle arrow-none" href="./preshane-screen.php" id="topnav-dashboard"
                        role="button"
                     >
-                        <i class="bx bxl-codepen"></i><span key="t-dashboards"> Kalıp Hane Ekranı</span>
+                        <i class="bx bxl-codepen"></i><span key="t-dashboards"> Pres Hane Ekranı</span>
                     </a>
 
                     <li class="nav-item dropdown">

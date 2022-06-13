@@ -274,5 +274,166 @@ Proje_kodu=:Proje_kodu");
 
 
 
+/** PRES EKLEME ISLEMLERI **/
+
+if (isset($_POST['PresKaydet'])) {
+    $PressKaydet = $DataBase->prepare("INSERT INTO gbprssdatapres SET PresAdi=:PresAdi,PresAdet=:PresAdet");
+    $insert = $PressKaydet->execute(array(
+        'PresAdi' => $_POST['PresAdi'],
+        'PresAdet' => $_POST['PresAdet']
+    ));
+
+    if ($insert) {
+        header("Location:../pres-listesi.php?DURUM=OK");
+    } else {
+        header("Location:../pres-listesi.php?DURUM=NO");
+    }
+
+}
+/** PRES EKLEME ISLEMLERI **/
+
+
+/** KULLANICI EKLEME ISLEMLERI **/
+
+if (isset($_POST['KullaniciKaydet'])) {
+    $PressKaydet = $DataBase->prepare("INSERT INTO gbprssdatakullanici SET 
+KullaniciName=:KullaniciName,
+KullaniciSurName=:KullaniciSurName,
+KullaniciMail=:KullaniciMail,
+KullaniciSifre=:KullaniciSifre,
+KullaniciYetki=:KullaniciYetki
+
+                                
+                                ");
+    $insert = $PressKaydet->execute(array(
+        'KullaniciName' => $_POST['KullaniciAdi'],
+        'KullaniciSurName' => $_POST['KullaniciSoyadi'],
+        'KullaniciMail' => $_POST['KullaniciMail'],
+        'KullaniciSifre' => $_POST['KullaniciSifre'],
+        'KullaniciYetki' => $_POST['KullaniciYetki']
+    ));
+
+    if ($insert) {
+        header("Location:../kullanici-listesi.php?DURUM=OK");
+    } else {
+        header("Location:../kullanici-listesi.php?DURUM=NO");
+    }
+
+}
+/** KULLANICI EKLEME ISLEMLERI **/
+
+
+
+
+/**PRES DURUM DEGISTIR**/
+$siraIdPres = $_POST["sira"];
+$durum = $_POST["durum"];
+$pres = $_POST["press"];
+$tarih=date('Y-m-d');
+$baglanti = new mysqli("localhost", "root", "123456789", "j32mc8jzhlk6qmchtu");
+if ($baglanti->connect_errno > 0) {
+    die("<b>Bağlantı Hatası:</b> " . $baglanti->connect_error);
+}
+
+if ($durum=='tamamlandi') {
+    $sql="update gbprssdataexcel set Durum='".$durum."',Tamamlanma_tarihi='".$tarih."' where Sira = '".$siraIdPres."'";
+    $sonuc= mysqli_query($baglanti,$sql);
+    if($sonuc)
+    {
+        $sql2="INSERT INTO gbprssdatafinish() SELECT * FROM gbprssdataexcel WHERE Sira='".$siraIdPres."'";
+        $sonuc2= mysqli_query($baglanti,$sql2);
+        if($sonuc2)
+        {
+            header('Location:../preshane-screen.php');
+        }
+        else
+        {
+            echo 'tamamlandı tablosuna ekleme hatası';
+        }
+    }
+    else
+    {
+        echo 'durum tamamlandi güncelleme hatası';
+    }
+}
+else
+{
+    $sql="update gbprssdataexcel set Durum='".$durum."' where Sira = '".$siraIdPres."'";
+    $sonuc= mysqli_query($baglanti,$sql);
+    if($sonuc)
+    {
+        header('Location:../preshane-screen.php');
+    }
+    else
+    {
+        echo 'tamamlandi dışında durum güncelleme hatası';
+    }
+}
+/**PRES DURUM DEGISTIR**/
+
+
+/**PRESCI DEGISTIR**/
+
+$siraPresci = $_POST["sirano"];
+$presci = $_POST["presci"];
+
+
+$baglanti = new mysqli("localhost", "root", "123456789", "j32mc8jzhlk6qmchtu");
+if ($baglanti->connect_errno > 0) {
+    die("<b>Bağlantı Hatası:</b> " . $baglanti->connect_error);
+}
+$sql = "update gbprssdataexcel set Presci='" . $presci . "' where Sira = '" . $siraPresci . "'";
+$sonuc = mysqli_query($baglanti, $sql);
+if ($sonuc) {
+    header('Location:../preshane-screen.php');
+} else {
+
+    echo "hata oluştu";
+}
+
+/**PRESCI DEGISTIR**/
+
+/**KALIPCI DEGISTIR**/
+$siraKalipci = $_POST["sirano2"];
+$kalipci = $_POST["kalipci"];
+//echo $sira.'<br>';
+//echo $kalipci.'<br>';
+
+
+$baglanti =new mysqli("localhost", "root", "123456789", "j32mc8jzhlk6qmchtu");
+if ($baglanti->connect_errno > 0) {
+    die("<b>Bağlantı Hatası:</b> " . $baglanti->connect_error);
+}
+$sql = "update gbprssdataexcel set Kalipci='" . $kalipci . "' where Sira = '" . $siraKalipci . "'";
+$sonuc = mysqli_query($baglanti, $sql);
+if ($sonuc) {
+    header('Location:../preshane-screen.php');
+} else {
+
+    echo "hata oluştu";
+}
+
+/**KALIPCI DEGISTIR**/
+
+/**ACIL IS DEGISTIR**/
+
+$siraAcil = $_POST['siraAcil'];
+$baglanti = new mysqli("localhost", "root", "123456789", "j32mc8jzhlk6qmchtu");
+if ($baglanti->connect_errno > 0) {
+    die("<b>Bağlantı Hatası:</b> " . $baglanti->connect_error);
+}
+$sql = "SELECT min(Hafta) FROM gbprssdataexcel";
+$sorgu = mysqli_query($baglanti, $sql);
+$sonuc = mysqli_fetch_row($sorgu);
+$sql2 = "update gbprssdataexcel set Hafta = '" . (($sonuc[0]) - 1) . "' where Sira = '$siraAcil'";
+$sonuc2 = mysqli_query($baglanti, $sql2);
+if ($sonuc2) {
+    header('Location:../preshane-screen.php');
+} else {
+    echo "Hata var";
+}
+/**ACIL IS DEGISTIR**/
+
+
 
 

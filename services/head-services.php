@@ -21,4 +21,11 @@ if ($Count == 0) {
 <head>
     <?php include "services/meta-services.php";?>
     <?php include "services/css-services.php";?>
+    <style>
+    element.style {
+    }
+    @media (min-width: 1200px)
+    max-width: 100% !important;
+    }
+    </style>
 </head>
