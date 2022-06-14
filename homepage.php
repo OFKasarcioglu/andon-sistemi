@@ -21,7 +21,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="card">
@@ -74,11 +73,16 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Preslerin Kaç Saat Çalışacağı Analiz</h4>
-                                <div id="PresBasCalisma" style="width:100%; max-width:600px; height:380px;">
-                                    <?php
-                                    $sql5 = "SELECT gbprssdatapres,(SUM(DATEDIFF(Bitir,Basla))*9) FROM `gbprssdataexcel` group by gbprssdatapres";
-                                    $sorgu5 = mysqli_query($DataBase, $sql5);
-                                    ?>
+                                <?php
+                                $sql12="SELECT gbprssdataexcel.Pres,(SUM(DATEDIFF(gbprssdataexcel.Bitir,gbprssdataexcel.Basla))*18) FROM gbprssdataexcel group by gbprssdataexcel.Pres";
+                                $sorgu=mysqli_query($DataBase,$sql12);
+                                while( $sonuc=mysqli_fetch_row($sorgu) ){
+                                if($sonuc[0]=="")
+                                echo "<label class='bg bg-danger'> PRES ADI BOŞ </label> ".$sonuc[1]."<br>";
+                                else
+                                echo $sonuc[0]." ".'-'.$sonuc[1]." Saat <br>";
+                                }
+                                ?>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +111,7 @@
                                 <h4 class="card-title mb-4">Bu Ay Tamamlanan İşler</h4>
                                 <div id="BuAyBitenIsler" style="width:100%; max-width:600px; height:380px;">
                                     <?php
-                                    $sql7 = "SELECT gbprssdatapres.PresAdi,count(*) FROM gbprssdatafinish inner join gbprssdatapres on gbprssdatafinish.Pres=pres.PresAdi where month(gbprssdatafinish.Tamamlanma_tarihi)=".date('m')." group by gbprssdatafinish.gbprssdatapres";
+                                    $sql7 = "select gbprssdatapres.PresAdi,COUNT(*) from gbprssdatafinish INNER JOIN gbprssdatapres on gbprssdatafinish.Pres=gbprssdatapres.PresAdi where month(gbprssdatafinish.Tamamlanma_tarihi)=".date('m')." GROUP by gbprssdatafinish.Pres";
                                     $sorgu7 = mysqli_query($DataBase, $sql7);
                                     ?>
                                 </div>
@@ -187,28 +191,7 @@
         chart.draw(data, options);
     }
 </script>
-<script>
-    google.charts.load('current', {'packages': ['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Pres', 'Adet'],
-            <?php
-            while ($sonuc3 = mysqli_fetch_row($sorgu5)) {
-                echo "['$sonuc3[0]',$sonuc3[1]],";
-            }
-            ?>
-        ]);
-
-        var options = {
-            title: '',
-            pieHole: 0.4
-        };
-        var chart = new google.visualization.PieChart(document.getElementById('PresBasCalisma'));
-        chart.draw(data, options);
-    }
-</script>
 <script>
     google.charts.load('current', {'packages': ['corechart']});
     google.charts.setOnLoadCallback(drawChart);

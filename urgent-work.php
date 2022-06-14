@@ -30,10 +30,10 @@
                                     <div class="col-sm-12">
                                         <div class="mt-4">
                                             <div>
-                                                <form action="process/prodecure.php" method="post">
+                                                <form action="process/urgent-works.php" method="post">
                                                 <div class="input-group">
-                                                    <input type="text" placeholder="ÖRN : 13" class="form-control" id="GeboPresAcilIs" aria-describedby="GeboPresAcilIs">
-                                                    <button class="btn btn-danger" type="submit"  name="siraAcil" id="GeboPresAcilIs">Acil İş</button>
+                                                    <input type="text" name="siraAcil" placeholder="ÖRN : 13" class="form-control" aria-describedby="GeboPresAcilIs">
+                                                    <button class="btn btn-danger" type="submit" >Acil İş</button>
                                                 </div>
                                                 </form>
                                             </div>

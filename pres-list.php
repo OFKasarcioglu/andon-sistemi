@@ -1,4 +1,13 @@
 <?php include "services/head-services.php"?>
+<?php
+include 'process/connection.php';
+$PressListe=$DataBase->prepare("SELECT * FROM gbprssdatapres");
+$PressListe->execute();
+
+?>
+
+
+<?php include "services/head-services.php"?>
 <title>Pres Listesi | Gebo Pres</title>
 <body data-topbar="dark" data-layout="horizontal">
 <div id="layout-wrapper">
@@ -41,15 +50,18 @@
                                     </tr>
                                     </thead>
                                     <tbody align="center">
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
-                                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
-                                        </td>
-                                    </tr>
+                                    <?php
+                                    while ($PresListeGoster=$PressListe->fetch(PDO::FETCH_ASSOC)){?>
+                                        <tr>
+                                            <td><?php echo $PresListeGoster['PresAdi'];?></td>
+                                            <td><?php echo $PresListeGoster['PresAdet'];?></td>
+                                            <td><?php echo $PresListeGoster['PresAddDate'];?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
+                                                <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
+                                            </td>
+                                        </tr>
+                                    <?php }?>
                                     </tbody>
                                 </table>
                             </div>
