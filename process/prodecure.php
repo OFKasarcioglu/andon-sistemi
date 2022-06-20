@@ -259,7 +259,6 @@ Proje_kodu=:Proje_kodu");
                         'Satinalma_toleransi' => $Satinalma_toleransi,
                         'Proje_kodu' => $Proje_kodu
                     ]);
-
                     if ($yukle) {
                         header("Location:../database-insert.php?DURUM=YES");
                     } else {
@@ -275,22 +274,25 @@ Proje_kodu=:Proje_kodu");
 
 
 /** PRES EKLEME ISLEMLERI **/
-
 if (isset($_POST['PresKaydet'])) {
     $PressKaydet = $DataBase->prepare("INSERT INTO gbprssdatapres SET PresAdi=:PresAdi,PresAdet=:PresAdet");
     $insert = $PressKaydet->execute(array(
-        'PresAdi' => $_POST['PresAdi'],
+        'PresAdi' => $_POST['PresAd'],
         'PresAdet' => $_POST['PresAdet']
     ));
 
     if ($insert) {
-        header("Location:../pres-listesi.php?DURUM=OK");
+        header("Location:../pres-list.php?DURUM=OK");
     } else {
-        header("Location:../pres-listesi.php?DURUM=NO");
+        header("Location:../pres-list.php?DURUM=NO");
     }
 
 }
 /** PRES EKLEME ISLEMLERI **/
+
+
+
+
 
 
 /** KULLANICI EKLEME ISLEMLERI **/
@@ -299,28 +301,26 @@ if (isset($_POST['KullaniciKaydet'])) {
     $PressKaydet = $DataBase->prepare("INSERT INTO gbprssdatakullanici SET 
 KullaniciName=:KullaniciName,
 KullaniciSurName=:KullaniciSurName,
-KullaniciMail=:KullaniciMail,
 KullaniciSifre=:KullaniciSifre,
 KullaniciYetki=:KullaniciYetki
-
-                                
-                                ");
+");
     $insert = $PressKaydet->execute(array(
-        'KullaniciName' => $_POST['KullaniciAdi'],
-        'KullaniciSurName' => $_POST['KullaniciSoyadi'],
-        'KullaniciMail' => $_POST['KullaniciMail'],
+        'KullaniciName' => $_POST['KullaniciAd'],
+        'KullaniciSurName' => $_POST['KullaniciSoyad'],
         'KullaniciSifre' => $_POST['KullaniciSifre'],
         'KullaniciYetki' => $_POST['KullaniciYetki']
     ));
 
     if ($insert) {
-        header("Location:../kullanici-listesi.php?DURUM=OK");
+        header("Location:../people-list.php?DURUM=OK");
     } else {
-        header("Location:../kullanici-listesi.php?DURUM=NO");
+        header("Location:../people-list.php?DURUM=NO");
     }
 
 }
 /** KULLANICI EKLEME ISLEMLERI **/
+
+
 
 
 

@@ -20,12 +20,8 @@
                     </span>
                 </a>
             </div>
-
         </div>
-
         <div class="d-flex">
-
-
             <div class="dropdown d-inline-block">
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"

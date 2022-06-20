@@ -26,29 +26,29 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <form>
+                                <form action="process/prodecure.php" method="post">
                                     <div class="row mb-4">
                                         <label for="KullaniciAdi" class="col-sm-3 col-form-label">Kullanıcı Adı</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="KullaniciAdi" placeholder="Örn : Recep ">
+                                            <input type="text" class="form-control" name="KullaniciAd" id="KullaniciAdi" placeholder="Örn : Recep ">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="KullaniciSoyadi" class="col-sm-3 col-form-label">Kullanıcı Soyadı</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="KullaniciSoyadi" placeholder="Örn : Ateş">
+                                            <input type="text" class="form-control" name="KullaniciSoyad" id="KullaniciSoyadi" placeholder="Örn : Ateş">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="KullaniciSifresi" class="col-sm-3 col-form-label">Kullanıcı Şifresi</label>
                                         <div class="col-sm-9">
-                                            <input type="password" class="form-control" id="KullaniciSifresi" placeholder="Örn : 12345">
+                                            <input type="password" class="form-control" name="KullaniciSifre" id="KullaniciSifresi" placeholder="Örn : 12345">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="horizontal-password-input" class="col-sm-3 col-form-label">Kulanıcı Yetki</label>
                                         <div class="col-sm-9">
-                                            <select id="formrow-inputState" class="form-select">
+                                            <select id="formrow-inputState" name="KullaniciYetki" class="form-select">
                                                 <option>--</option>
                                                 <option>Admin</option>
                                                 <option>Preshane Sorumlusu</option>
@@ -60,7 +60,7 @@
                                     <div class="row justify-content-end">
                                         <div class="col-sm-9">
                                             <div>
-                                                <button type="submit" class="btn btn-primary w-md">Kullanıcı Ekle</button>
+                                                <button type="submit"  name="KullaniciKaydet" class="btn btn-primary w-md">Kullanıcı Ekle</button>
                                             </div>
                                         </div>
                                     </div>

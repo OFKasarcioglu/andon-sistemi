@@ -61,9 +61,7 @@ $KullaniciListe->execute();
                                             <td><?php echo $KullaniciListeGoster['KullaniciYetki'];?></td>
                                             <td><?php echo $KullaniciListeGoster['KullaniciAddDate'];?></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
-                                                <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
-                                            </td>
+                                                <a href="process/people-delete.php?KullaniciID=<?php echo $KullaniciListeGoster['KullaniciID'];?>&KSIL=OK"><button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button></a>
                                         </tr>
                                     <?php }?>
                                     </tbody>

@@ -57,8 +57,7 @@ $PressListe->execute();
                                             <td><?php echo $PresListeGoster['PresAdet'];?></td>
                                             <td><?php echo $PresListeGoster['PresAddDate'];?></td>
                                             <td>
-                                                <button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-pencil label-icon"></i> Sil</button>
-                                                <button type="button" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Düzenle</button>
+                                                <a href="process/pres-delete.php?PresId=<?php echo $PresListeGoster['PresId'];?>&PSIL=OK"><button type="button" class="btn btn-danger waves-effect btn-label waves-light"><i class="bx bx-trash label-icon"></i> Sil</button></a>
                                             </td>
                                         </tr>
                                     <?php }?>

@@ -26,23 +26,23 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <form>
+                                <form action="process/prodecure.php" method="post">
                                     <div class="row mb-4">
                                         <label for="KullaniciAdi" class="col-sm-3 col-form-label">Pres Adı</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="KullaniciAdi" placeholder="Örn : PRS-123-01 ">
+                                            <input type="text" class="form-control" id="KullaniciAdi" name="PresAd" placeholder="Örn : PRS-123-01 ">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <label for="KullaniciSoyadi" class="col-sm-3 col-form-label">Pres Adet</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="KullaniciSoyadi" placeholder="Örn : 1">
+                                            <input type="text" class="form-control" name="PresAdet" id="KullaniciSoyadi" placeholder="Örn : 1">
                                         </div>
                                     </div>
                                     <div class="row justify-content-end">
                                         <div class="col-sm-9">
                                             <div>
-                                                <button type="submit" class="btn btn-primary w-md">Pres Ekle</button>
+                                                <button type="submit" name="PresKaydet" class="btn btn-primary w-md">Pres Ekle</button>
                                             </div>
                                         </div>
                                     </div>

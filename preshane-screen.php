@@ -34,6 +34,10 @@
                                         width: 100%;
                                     }
 
+                                    .pres_ariza{
+                                        background-color: orange;
+                                    }
+
                                     .kalip_ariza{
                                         background-color: rgb(201,21,21);
                                     }
@@ -178,6 +182,7 @@
                                                     echo '<option value="kalip_ariza">Kalıp Arıza</option>';
                                                     echo '<option value="kalite_problem">Kalite Prob.</option>';
                                                     echo '<option value="pres_hazir">Pres Hazır</option>';
+                                                    echo '<option value="pres_ariza">Pres Arıza</option>';
                                                     echo '<option value="tamamlandi">Tamamlandı</option>';
                                                     echo '</select>';
                                                     echo '<input type="hidden" name="sira" value="'.$row["Sira"].'">';
@@ -298,11 +303,6 @@
                                     echo "</tr>";
                                     echo "</table>";
                                 ?>
-
-
-
-
-
                             </div>
                         </div>
 
